@@ -16,7 +16,7 @@ pipeline {
           submoduleCfg: [],
           userRemoteConfigs: [[
             url: 'https://github.com/xilink-vivado/myproject']]])
-      sh 'cd scripts && vivado -mode batch -source recreate_prj.tcl'
+      sh '/bin/bash -l scripts/build_fpga.sh''
       }
     }
     stage('Run simulation') {
