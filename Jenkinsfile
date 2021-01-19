@@ -16,7 +16,7 @@ pipeline {
           submoduleCfg: [],
           userRemoteConfigs: [[
             url: 'https://github.com/xilink-vivado/myproject']]])
-      sh '/bin/bash -l scripts/build_fpga.sh''
+      sh '/bin/bash -l scripts/build_fpga.sh'
       }
     }
     stage('Run simulation') {
