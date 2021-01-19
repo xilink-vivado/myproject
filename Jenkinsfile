@@ -16,27 +16,27 @@ pipeline {
           submoduleCfg: [],
           userRemoteConfigs: [[
             url: 'https://github.com/xilink-vivado/myproject']]])
-      sh '/bin/bash -l scripts/build_fpga.sh'
+      sh 'cd scripts && vivado -mode batch -source recreate_prj.tcl'
       }
     }
     stage('Run simulation') {
       steps {
-        sh 'cd vivado && vivado -mode batch -source run_simulation.tcl'
+        sh 'cd scripts && vivado -mode batch -source run_simulation.tcl'
       }
     }
     stage('Run synthesis') {
       steps {
-        sh 'cd vivado && vivado -mode batch -source run_synthesis.tcl'
+        sh 'cd scripts && vivado -mode batch -source run_synthesis.tcl'
       }
     }
     stage('Run implementation') {
       steps {
-        sh 'cd vivado && vivado -mode batch -source run_implementation.tcl'
+        sh 'cd scripts && vivado -mode batch -source run_implementation.tcl'
       }
     }
     stage('Generate bitstream') {
       steps {
-        sh 'cd vivado && vivado -mode batch -source generate_bitstream.tcl'
+        sh 'cd scripts && vivado -mode batch -source generate_bitstream.tcl'
       }
     }
     stage('Release bitfile') {
