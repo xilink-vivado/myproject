@@ -54,7 +54,7 @@ pipeline {
         echo "Submodules:" >> $INFOFILE
         git submodule status >> $INFOFILE
         cp $INFOFILE $RELEASE_DIR
-        cp vivado/example_blog1.runs/impl_1/top.bit $RELEASE_DIR/$BITFILE
+        cp vivado/example_blog1.runs/impl_1/example_blog1_wrapper.bit $RELEASE_DIR/$BITFILE
         '''
       }
     }
