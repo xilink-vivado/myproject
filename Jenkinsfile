@@ -21,22 +21,22 @@ pipeline {
     }
     stage('Run simulation') {
       steps {
-        sh 'cd scripts && vivado -mode batch -source run_simulation.tcl'
+        sh 'cd vivado && vivado -mode batch -source run_simulation.tcl'
       }
     }
     stage('Run synthesis') {
       steps {
-        sh 'cd scripts && vivado -mode batch -source run_synthesis.tcl'
+        sh 'cd vivado && vivado -mode batch -source run_synthesis.tcl'
       }
     }
     stage('Run implementation') {
       steps {
-        sh 'cd scripts && vivado -mode batch -source run_implementation.tcl'
+        sh 'cd vivado && vivado -mode batch -source run_implementation.tcl'
       }
     }
     stage('Generate bitstream') {
       steps {
-        sh 'cd scripts && vivado -mode batch -source generate_bitstream.tcl'
+        sh 'cd vivado && vivado -mode batch -source generate_bitstream.tcl'
       }
     }
     stage('Release bitfile') {
