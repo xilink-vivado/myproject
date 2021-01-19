@@ -42,7 +42,7 @@ pipeline {
     stage('Release bitfile') {
       steps {
         sh '''
-        PROJ_NAME=seg7
+        PROJ_NAME=example_blog1
         RELEASE_DIR=/usr/share/nginx/html/releases/
         BASE_NAME=$PROJ_NAME-`date +"%Y-%m-%d-%H-%H:%M"`
         BITFILE=$BASE_NAME.bit
